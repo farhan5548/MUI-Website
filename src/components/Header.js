@@ -1,9 +1,117 @@
-const Header = () => {
-  return (
-    <div>
-      <h1>Navbar</h1>
-    </div>
-  )
-}
+import { useState } from "react";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  Divider,
+} from "@mui/material";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
+import { Link } from "react-router-dom";
+import "../styles/HeaderStyles.css";
+import MenuIcon from "@mui/icons-material/Menu";
 
-export default Header
+const Header = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // handle menu click
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  // menu drawer
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Typography
+        variant="h6"
+        color={"goldenrod"}
+        component="div"
+        sx={{ flexGrow: 1 , my:2}}
+      >
+        <FastfoodIcon />
+        My Restaurant
+        <Divider/>
+      </Typography>
+      <ul className="mobile-navigation">
+        <li>
+          <Link to={"/"}>Home</Link>
+        </li>
+        <li>
+          <Link to={"/menu"}>Menu</Link>
+        </li>
+        <li>
+          <Link to={"/about"}>About</Link>
+        </li>
+        <li>
+          <Link to={"/contact"}>Contact</Link>
+        </li>
+      </ul>
+    </Box>
+  );
+
+  return (
+    <>
+      <Box>
+        <AppBar component={"nav"} sx={{ bgcolor: "black" }}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              sx={{ mr: 2, display: { sm: "none" } }}
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              color={"goldenrod"}
+              component="div"
+              sx={{ flexGrow: 1 }}
+            >
+              <FastfoodIcon />
+              My Restaurant
+            </Typography>
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              <ul className="navigation-menu">
+                <li>
+                  <Link to={"/"}>Home</Link>
+                </li>
+                <li>
+                  <Link to={"/menu"}>Menu</Link>
+                </li>
+                <li>
+                  <Link to={"/about"}>About</Link>
+                </li>
+                <li>
+                  <Link to={"/contact"}>Contact</Link>
+                </li>
+              </ul>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Box component="nav">
+          <Drawer
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            sx={{
+              display: { xs: "block", sm: "none" },
+              "&.MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: "240px",
+              },
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </Box>
+        <Toolbar/>
+      </Box>
+    </>
+  );
+};
+
+export default Header;
