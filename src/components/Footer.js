@@ -15,7 +15,7 @@ const Footer = () => {
           sx={{
             m: 3,
             "& svg": {
-              fontSize: "60px",
+              fontSize: "30px",
               cursor: "pointer",
               mr: 2,
             },
@@ -34,7 +34,7 @@ const Footer = () => {
           <LinkedInIcon />
         </Box>
         <Typography
-          variant="h5"
+          variant="h6"
           sx={{ "@media (max-width:600px)": { fontSize: "1rem" } }}
         >
           All Rights Reserved &copy; My Restaurant.

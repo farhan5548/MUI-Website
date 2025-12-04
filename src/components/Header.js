@@ -63,7 +63,7 @@ const Header = () => {
               sx={{ mr: 2, display: { sm: "none" } }}
               onClick={handleDrawerToggle}
             >
-              <MenuIcon />
+              <MenuIcon/>
             </IconButton>
             <Typography
               variant="h6"

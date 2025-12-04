@@ -1,9 +1,12 @@
+import { Box } from "@mui/material";
 import Layout from "../components/Layout";
 
 const About = () => {
   return (
     <Layout>
-      <h1>About Page</h1>
+      <Box>
+        
+      </Box>
     </Layout>
   );
 };
