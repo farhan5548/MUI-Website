@@ -13,7 +13,7 @@ const Footer = () => {
       >
         <Box
           sx={{
-            m: 3,
+            m: 1,
             "& svg": {
               fontSize: "30px",
               cursor: "pointer",
