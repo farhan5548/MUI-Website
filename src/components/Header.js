@@ -8,7 +8,7 @@ import {
   Drawer,
   Divider,
 } from "@mui/material";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
+import Logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
 import "../styles/HeaderStyles.css";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -26,13 +26,20 @@ const Header = () => {
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography
         variant="h6"
-        color={"goldenrod"}
+        color={"black"}
         component="div"
-        sx={{ flexGrow: 1 , my:2}}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 1,
+          mb: 1,
+          "&.h6:":{fontWeight:"bold"}
+        }}
       >
-        <FastfoodIcon />
+        <img src={Logo} alt="logo" style={{ height: "35px", width: "auto" }} />
         My Restaurant
-        <Divider/>
+        <Divider />
       </Typography>
       <ul className="mobile-navigation">
         <li>
@@ -55,25 +62,36 @@ const Header = () => {
     <>
       <Box>
         <AppBar component={"nav"} sx={{ bgcolor: "black" }}>
-          <Toolbar>
+          <Toolbar
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="start"
-              sx={{ mr: 2, display: { sm: "none" } }}
+              sx={{ display: { sm: "none" } }}
               onClick={handleDrawerToggle}
             >
-              <MenuIcon/>
+              <MenuIcon />
             </IconButton>
-            <Typography
-              variant="h6"
-              color={"goldenrod"}
-              component="div"
-              sx={{ flexGrow: 1 }}
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: "flex",
+                gap: 1,
+                alignItems: "center",
+              }}
             >
-              <FastfoodIcon />
+              <img
+                src={Logo}
+                alt="logo"
+                style={{ height: "35px", width: "auto" }}
+              />
               My Restaurant
-            </Typography>
+            </Box>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               <ul className="navigation-menu">
                 <li>
@@ -108,7 +126,7 @@ const Header = () => {
             {drawer}
           </Drawer>
         </Box>
-        <Toolbar/>
+        <Toolbar />
       </Box>
     </>
   );
