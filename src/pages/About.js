@@ -6,7 +6,7 @@ const About = () => {
     <Layout>
       <Box
         sx={{
-          my: 2,
+          my: 1,
           textAlign: "center",
           p: 2,
           "& h4": {
