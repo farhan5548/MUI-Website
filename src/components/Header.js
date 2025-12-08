@@ -34,10 +34,18 @@ const Header = () => {
           alignItems: "center",
           gap: 1,
           mb: 1,
-          "&.h6:":{fontWeight:"bold"}
         }}
       >
-        <img src={Logo} alt="logo" style={{ height: "35px", width: "auto" }} />
+        <img
+          src={Logo}
+          alt="logo"
+          style={{
+            height: "35px",
+            width: "auto",
+            borderRadius: "50%",
+            objectFit: "cover",
+          }}
+        />
         My Restaurant
         <Divider />
       </Typography>
@@ -88,7 +96,12 @@ const Header = () => {
               <img
                 src={Logo}
                 alt="logo"
-                style={{ height: "35px", width: "auto" }}
+                style={{
+                  height: "35px",
+                  width: "auto",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                }}
               />
               My Restaurant
             </Box>
